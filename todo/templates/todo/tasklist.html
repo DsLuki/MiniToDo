@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/css/style.css' %}">
+</head>
+<body>
+    <div class="todo-wrapper">
+        <div class="todo-header">
+            <h1>Todo list</h1>
+        </div>
+        <form method="POST" class="todo-form">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Add a new item...">
+            <button name="add_task">Add Task</button>
+        </form>
+        <div class="todo-list">
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <form method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" name="complete_task">
+                            {% if task.completed %} ✅ {% else %} ⬜ {% endif %}
+                        </button>
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                    </form>
+                    <span {% if task.completed %} style="text-decoration: line-through;" {% endif %}>
+                        {{ task.title }}
+                    </span>
+                    <form method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" name="delete_task">✖</button>
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,8 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f2f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-h1 {
-    color: #333;
+.todo-wrapper {
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.todo-header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+
+    font-weight: 600;
+}
+
+.todo-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todo-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.todo-form input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.todo-form button {
+    padding: 10px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.todo-form button:hover {
+    background-color: #357ab8;
+}
+
+.todo-list {
+    padding: 20px;
+}
+
+.todo-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.todo-list ul li:hover {
+    background-color: #e6f0fa;
+    cursor: default;
+    border-color: #4a90e2;
+}
+
+.todo-list ul li input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.todo-list ul li button {
+    border: none;
+    background-color: transparent;
+    color: #d11a2a;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
